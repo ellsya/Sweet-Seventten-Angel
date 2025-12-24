@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSVP Sweet Seventeen Angel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Halaman Pembuka -->
+  <section id="intro" class="active">
+    <div class="intro-content">
+      <h1>Sweet Seventeen of Angel 💕</h1>
+      <button id="startBtn">Start 🎉</button>
+    </div>
+  </section>
+
+  <!-- Galeri -->
+  <section id="gallery">
+    <h2>✨ Pre-Sweet Moments ✨</h2>
+       <img src="images/foto 1.jpg" alt="Pre Sweet 1">
+    <img src="images/foto 2.jpg" alt="Pre Sweet 2">
+    <img src="images/foto 3.jpg" alt="Pre Sweet 3">
+    </div>
+  </section>
+  <section id="details">
+    <h2>📅 Detail Acara</h2>
+    <p><strong>Date:</strong> Saturday, 17 January 2026</p>
+    <p><strong>Time:</strong> 13.00 WIB - end</p>
+    <p><strong>Place:</strong> Arcana - Arcade Cafe</p>
+    <p>Jl. Dr. Setiabudi No.114, Gegerkalong, Kec. Sukasari, Kota Bandung, Jawa Barat</p>
+    <p>Dress code: pastel vibes 💐</p>
+  
+    <!-- Countdown Section -->
+    <div id="countdown-section">
+      <h3>⏰ COUNTDOWN 💕</h3>
+      <div id="countdown">
+        <div><span id="days">00</span><small>Hari</small></div>
+        <div><span id="hours">00</span><small>Jam</small></div>
+        <div><span id="minutes">00</span><small>Menit</small></div>
+        <div><span id="seconds">00</span><small>Detik</small></div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- RSVP -->
+  <section id="rsvp">
+    <h2>💌 RSVP</h2>
+    <form id="rsvpForm">
+      <label>Name</label>
+      <input type="text" id="name" placeholder="Nama kamu" required>
+
+      <label>Attendance</label>
+      <select id="attendance" required>
+        <option value="ya">Yes, I am coming!</option>
+        <option value="tidak">Sorry, I can not make it</option>
+      </select>
+      <label for="maincourse">Main Course</label>
+<select id="maincourse" required>
+  <option value="Spaghetti Aglio Olio">Spaghetti Aglio Olio</option>
+  <option value="Spaghetti Bolognese">Spaghetti Bolognese</option>
+  <option value="Chicken Steak">Chicken Steak</option>
+  <option value="Chicken Cordon Blue">Chicken Cordon Blue</option>
+</select>
+
+<label for="beverage">Beverage</label>
+<select id="beverage" required>
+  <option value="Ice Tea">Ice Tea</option>
+  <option value="Ice Lemon Tea">Ice Lemon Tea</option>
+  <option value="Ice Lychee Tea">Ice Lychee Tea</option>
+</select>
+
+      <label>Whish</label>
+      <textarea id="wish" placeholder="Tulis ucapan manis kamu..." rows="3"></textarea>
+
+      <button type="submit">Kirim RSVP ✨</button>
+    </form>
+
+  <div id="response"></div>
+  <div id="wish-list">
+    <h3>💌 Whish💌</h3>
+    <ul id="wish-container"></ul>
+  </div>
+  
+</section>
+
+<button id="backBtn" class="back-btn">⬅️Back to Top</button>
+
+<audio id="bgMusic" loop>
+  <source src="piano.mp3" type="audio/mpeg">
+</audio>
+<button id="musicBtn" class="music-btn">🎵</button>
+
+<script src="script.js"></script>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
