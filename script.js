@@ -7,6 +7,28 @@ const responseDiv = document.getElementById('response');
 const backBtn = document.getElementById('backBtn');
 const wishContainer = document.getElementById("wish-container");
 const CREATOR_PASSWORD = "sweet17"; // ganti sendiri
+const music = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+
+let isPlaying = false;
+
+musicBtn.addEventListener("click", () => {
+  if (!isPlaying) {
+    music.play();
+    musicBtn.innerText = "⏸ Pause Music";
+    isPlaying = true;
+  } else {
+    music.pause();
+    musicBtn.innerText = "🎵 Play Music";
+    isPlaying = false;
+  }
+});
+startBtn.addEventListener("click", () => {
+  music.play();
+  isPlaying = true;
+  musicBtn.innerText = "⏸ Pause Music";
+});
+
 
 function unlockDelete() {
   const pass = prompt("Masukkan password creator:");
@@ -182,6 +204,7 @@ if (wishContainer) {
     }
   });
 }
+
 
 
 
