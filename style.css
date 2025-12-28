@@ -54,6 +54,7 @@ body {
 }
 
 /* ====== GALLERY ====== */
+/* === SECTION GALLERY === */
 #gallery {
   display: none;
   padding: 60px 20px;
@@ -65,24 +66,39 @@ body {
   display: block;
 }
 
-.gallery-container {
+/* === GRID FOTO (TAMPILAN KAYAK TABEL TANPA GARIS) === */
+.photo-grid {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 12px;
-  max-width: 900px;
-  margin : 25px auto;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 900px;   /* biar ga kegedean */
+  margin: 30px auto;
 }
 
-.gallery-container img {
+/* === FOTO === */
+.photo-grid img {
   width: 100%;
-   aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: 15px;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(255, 182, 193, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.gallery-container img:hover {
+/* === HOVER EFEK === */
+.photo-grid img:hover {
   transform: scale(1.05);
+  box-shadow: 0 12px 28px rgba(255, 105, 180, 0.45);
 }
+
+/* === RESPONSIVE HP === */
+@media (max-width: 600px) {
+  .photo-grid {
+    gap: 10px;
+    max-width: 95%;
+  }
+}
+
 
 /* ====== DETAILS ====== */
 #details {
@@ -225,3 +241,4 @@ button:hover {
   
 
   
+
