@@ -56,7 +56,7 @@ body {
 /* ====== GALLERY ====== */
 /* === SECTION GALLERY === */
 #gallery {
-  display: none;
+  display: block;
   padding: 60px 20px;
   text-align: center;
   animation: fadeIn 1.2s ease;
@@ -241,4 +241,5 @@ button:hover {
   
 
   
+
 
