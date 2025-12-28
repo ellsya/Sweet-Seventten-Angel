@@ -6,6 +6,30 @@ const form = document.getElementById('rsvpForm');
 const responseDiv = document.getElementById('response');
 const backBtn = document.getElementById('backBtn');
 const wishContainer = document.getElementById("wish-container");
+const CREATOR_PASSWORD = "sweet17"; // ganti sendiri
+
+function unlockDelete() {
+  const pass = prompt("Masukkan password creator:");
+  if (pass === CREATOR_PASSWORD) {
+    document.getElementById("deleteBtn").style.display = "inline-block";
+    alert("Delete unlocked ✅");
+  } else {
+    alert("Password salah ❌");
+  }
+}
+function deleteWish(row) {
+  fetch(SCRIPT_URL, {
+    method: "POST",
+    body: JSON.stringify({
+      action: "delete",
+      row: row,
+      password: prompt("Password:")
+    })
+  })
+  .then(res => res.text())
+  .then(alert);
+}
+
 
 // === Saat tombol "Mulai" diklik ===
 if (startBtn) {
@@ -158,4 +182,5 @@ if (wishContainer) {
     }
   });
 }
+
 
