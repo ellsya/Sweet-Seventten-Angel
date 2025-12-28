@@ -99,7 +99,7 @@ if (form) {
     const data = { name, attendance, maincourse, beverage, wish };
 
     // Kirim ke Google Sheet (ganti URL dengan milikmu)
-    fetch("https://script.google.com/macros/s/AKfycbxPw39VpJABy4DkIax9AEw_WFsxImXxpN91CT4nOKCv-s8aOVhDTthztGbJQpzqzHU/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbyrjorOwLsryMmKGPxQBMMsNyZ6YdafxWgzNinW-JUweRebZA5i1CAvffuu2hD2gg/exec", {
       method: "POST",
       mode: "no-cors", // no-cors supaya request tidak diblokir oleh CORS, response tidak bisa dibaca
       headers: {
@@ -182,5 +182,6 @@ if (wishContainer) {
     }
   });
 }
+
 
 
