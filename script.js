@@ -96,15 +96,15 @@ if (form) {
     const data = { name, attendance, maincourse, beverage, wish };
 
     // Kirim ke Google Sheet (ganti URL dengan milikmu)
-   fetch("https://script.google.com/macros/s/AKfycbxB-PjRIC1l_IILI266K_HkSpxqNUH5SbscTP925z89e0OdIfSBD2fBkKGsB7odQbCN/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbwYlX0zXlHDKJCGbS0y7mly_t9hJXXf5jShu8Lxsx-ymOQwMKwf3cdAC3Iu0bqaJWSn/exec", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({ 
-    name: nameInput, 
-    attendance: attendanceInput, 
-    maincourse: maincourseInput, 
-    beverage: beverageInput, 
-    wish: wishInput 
+    name: name, 
+    attendance: attendance, 
+    maincourse: maincourse, 
+    beverage: beverage, 
+    wish: wish
   }),
 })
 .then(res => res.json())
@@ -188,6 +188,7 @@ if (wishContainer) {
     }
   });
 }
+
 
 
 
