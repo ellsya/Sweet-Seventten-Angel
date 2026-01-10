@@ -96,16 +96,21 @@ if (form) {
     const data = { name, attendance, maincourse, beverage, wish };
 
     // Kirim ke Google Sheet (ganti URL dengan milikmu)
-    fetch("https://script.google.com/macros/s/AKfycbyEuWSsBUU7s4ohVmcxQzh7HyGPkX2BAfq3hwx5zbZz2Y5ofcNqy2VVVDfmZdXtz7Gs/exec", {
-       method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
+   fetch("https://script.google.com/macros/s/AKfycbzM88JUtJqFecqSWbds5kEdnq9hHEjW4SEeuqzCqFnRBhccDT7JOsZPihYFwqBLRPP7/exec", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
   body: JSON.stringify(data),
 })
 .then(res => res.json())
-.then(res => console.log(res)) // <--- Lihat apakah status success atau error
-.catch(err => console.error("Error kirim data:", err));
+.then(res => {
+  console.log(res); // Lihat status dan message
+  if (res.status === "success") {
+    // tampilkan di DOM & localStorage
+  } else {
+    alert("Gagal kirim data: " + res.message);
+  }
+})
+.catch(err => console.error("Error kirim data:", err));;
     
     // Tampilkan wish di halaman publik
     addWishToDOM(name, wish);
@@ -177,6 +182,7 @@ if (wishContainer) {
     }
   });
 }
+
 
 
 
