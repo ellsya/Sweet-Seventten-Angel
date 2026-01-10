@@ -96,42 +96,38 @@ if (form) {
     const data = { name, attendance, maincourse, beverage, wish };
 
     // Kirim ke Google Sheet (ganti URL dengan milikmu)
-  fetch("https://script.google.com/macros/s/AKfycbwYlX0zXlHDKJCGbS0y7mly_t9hJXXf5jShu8Lxsx-ymOQwMKwf3cdAC3Iu0bqaJWSn/exec", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ 
-    name: name, 
-    attendance: attendance, 
-    maincourse: maincourse, 
-    beverage: beverage, 
-    wish: wish
-  }),
-})
-.then(res => res.json())
-.then(res => {
-  console.log(res); // {status: "success", message: "..."}
-  if (res.status === "success") {
-    alert("Data berhasil dikirim!");
-  } else {
-    alert("Gagal kirim data: " + res.message);
-  }
-})
-.catch(err => console.error("Error:", err));
+ fetch("https://script.google.com/macros/s/AKfycbyVGAtljWm6ZVURSdTLiw5oFviG-vJU6orDsAKp872B_Et2pQt3TUrTNMuT9WuIsgDE/exec", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+    .then(res => res.json())
+    .then(res => {
+      console.log(res);
+      if (res.status === "success") {
+        // ✅ tampilkan wish di DOM
+        addWishToDOM(name, wish);
 
-    // Tampilkan wish di halaman publik
-    addWishToDOM(name, wish);
+        // ✅ simpan ke localStorage
+        const savedWishes = JSON.parse(localStorage.getItem("wishes")) || [];
+        savedWishes.push({ name, wish });
+        localStorage.setItem("wishes", JSON.stringify(savedWishes));
 
-    // Simpan wish ke localStorage agar persist di reload
-    const savedWishes = JSON.parse(localStorage.getItem("wishes")) || [];
-    savedWishes.push({ name, wish });
-    localStorage.setItem("wishes", JSON.stringify(savedWishes));
+        // ✅ update konfirmasi
+        if (responseDiv) {
+          responseDiv.innerHTML = `💌 Terima kasih, ${name}! Data kamu sudah tersimpan 💕`;
+        }
 
-    // Tampilkan konfirmasi kecil ke user
-    if (responseDiv) {
-      responseDiv.innerHTML = `💌 Terima kasih, ${name}! Data kamu sudah tersimpan 💕`;
-    }
-
-    form.reset();
+        // ✅ reset form
+        form.reset();
+      } else {
+        alert("Gagal kirim data: " + res.message);
+      }
+    })
+    .catch(err => {
+      console.error("Error kirim data:", err);
+      alert("Terjadi kesalahan, coba lagi.");
+    });
   });
 }
 
@@ -188,6 +184,7 @@ if (wishContainer) {
     }
   });
 }
+
 
 
 
