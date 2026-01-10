@@ -6,7 +6,6 @@ const form = document.getElementById('rsvpForm');
 const responseDiv = document.getElementById('response');
 const backBtn = document.getElementById('backBtn');
 const wishContainer = document.getElementById("wish-container");
-const CREATOR_PASSWORD = "sweet17"; // ganti sendiri
 const music = document.getElementById("bgMusic");
 const musicBtn = document.getElementById("musicBtn");
 
@@ -97,19 +96,19 @@ if (form) {
     const data = { name, attendance, maincourse, beverage, wish };
 
     // Kirim ke Google Sheet (ganti URL dengan milikmu)
-    fetch("https://script.google.com/macros/s/AKfycbwLXm_3ycH_WReum55sL9SLxV0cD1-96WJ97-UWmGMfIvq-tXqI8rFCjBYFdxeOVt3njQ/exec", {
-      method: "POST",
-      mode: "no-cors", // no-cors supaya request tidak diblokir oleh CORS, response tidak bisa dibaca
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    }).catch((err) => {
-      // fetch mode no-cors biasanya tidak me-return error detail,
-      // tapi kita handle supaya tidak crash.
-      console.warn("Fetch ke Google Apps Script (no-cors):", err);
-    });
-
+    fetch("https://script.google.com/macros/s/AKfycbwtm8logmqap6lzNPOeiRgnzJ4BtnTZCLY07CHzm1pHqgbcoaHZCqjwEjDI_xtcei6zTg/exec", {
+       method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(data),
+})
+.then(() => {
+  console.log("Data terkirim ke Apps Script");
+})
+.catch(err => {
+  console.error("Error kirim data:", err);
+});
     // Tampilkan wish di halaman publik
     addWishToDOM(name, wish);
 
@@ -180,6 +179,7 @@ if (wishContainer) {
     }
   });
 }
+
 
 
 
