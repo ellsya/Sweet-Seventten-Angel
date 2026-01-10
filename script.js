@@ -29,30 +29,6 @@ startBtn.addEventListener("click", () => {
   musicBtn.innerText = "⏸ Pause Music";
 });
 
-
-function unlockDelete() {
-  const pass = prompt("Masukkan password creator:");
-  if (pass === CREATOR_PASSWORD) {
-    document.getElementById("deleteBtn").style.display = "inline-block";
-    alert("Delete unlocked ✅");
-  } else {
-    alert("Password salah ❌");
-  }
-}
-function deleteWish(row) {
-  fetch(SCRIPT_URL, {
-    method: "POST",
-    body: JSON.stringify({
-      action: "delete",
-      row: row,
-      password: prompt("Password:")
-    })
-  })
-  .then(res => res.text())
-  .then(alert);
-}
-
-
 // === Saat tombol "Mulai" diklik ===
 if (startBtn) {
   startBtn.addEventListener('click', () => {
@@ -204,6 +180,7 @@ if (wishContainer) {
     }
   });
 }
+
 
 
 
