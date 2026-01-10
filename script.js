@@ -103,12 +103,10 @@ if (form) {
   },
   body: JSON.stringify(data),
 })
-.then(() => {
-  console.log("Data terkirim ke Apps Script");
-})
-.catch(err => {
-  console.error("Error kirim data:", err);
-});
+.then(res => res.json())
+.then(res => console.log(res)) // <--- Lihat apakah status success atau error
+.catch(err => console.error("Error kirim data:", err));
+    
     // Tampilkan wish di halaman publik
     addWishToDOM(name, wish);
 
@@ -179,6 +177,7 @@ if (wishContainer) {
     }
   });
 }
+
 
 
 
